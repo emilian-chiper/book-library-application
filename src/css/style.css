@@ -193,7 +193,7 @@ header i {
 }
 
 .book-container {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--sz-s);
 }
@@ -249,12 +249,18 @@ header i {
   outline: 2px solid var(--fg-main);
 }
 
+.card.card-form li input:focus {
+  background-color: #fff;
+}
+
 .card p {
   font-size: var(--fs-s);
 }
 
 .modal {
   display: none;
+  justify-content: center;
+  align-items: center;
 }
 
 footer a {

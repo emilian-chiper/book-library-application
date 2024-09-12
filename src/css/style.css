@@ -96,7 +96,8 @@ h6 {
 /* GENERAL ELEMENTS */
 body {
   height: 100vh;
-  display: block;
+  display: flex;
+  flex-direction: column;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -147,6 +148,13 @@ header {
   gap: var(--sz-s);
   background-color: var(--fg-main);
   color: var(--text-light);
+}
+
+section {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {

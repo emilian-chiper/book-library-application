@@ -26,7 +26,48 @@
     </header>
 
     <section>
-      <h1>Placeholder</h1>
+      <div class="book-container">
+        <div class="card card-book">
+          <h4>Book Title</h4>
+          <p>Author: <em>Author Name</em></p>
+          <p>Published: <em>1937</em></p>
+          <p>Pages: <em>320</em></p>
+          <button class="btn btn-status"><em>READ</em></button>
+        </div>
+      </div>
+
+      <div class="modal">
+        <form class="card card-form">
+          <ul>
+            <li>
+              <label for="book-title">Title: </label>
+              <input type="text" name="book-title" id="book-title" required />
+            </li>
+            <li>
+              <label for="book-author">Author: </label>
+              <input type="text" name="book-author" id="book-author" />
+            </li>
+            <li>
+              <label for="book-publish-year">Published: </label>
+              <input
+                type="number"
+                name="book-publish-year"
+                id="book-publish-year"
+              />
+            </li>
+            <li>
+              <label for="book-pages">Pages: </label>
+              <input type="number" name="book-pages" id="book-pages" />
+            </li>
+            <li>
+              <label for="book-status">Status: </label>
+              <input type="text" name="book-status" id="book-status" />
+            </li>
+          </ul>
+        </form>
+      </div>
+
+      <button class="btn btn-add-book">Add Book</button>
     </section>
 
     <footer>

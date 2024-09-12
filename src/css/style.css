@@ -86,7 +86,7 @@ h6 {
   --bg-main: #f8fafc;
   --bg-secondary: #d1d5db;
   --fg-main: #4169e1;
-  --fg-secondary: #818cf8;
+  --fg-secondary: #f8d081;
   --text-dark: #09090b;
   --text-dim: #4b5563;
   --text-light: #fafafa;
@@ -146,7 +146,14 @@ header {
   align-items: center;
   gap: var(--sz-s);
   background-color: var(--fg-main);
-  color: var(--bg-main);
+  color: var(--text-light);
+}
+
+footer {
+  padding: var(--sz-xxs) 0;
+  background-color: var(--fg-secondary);
+  text-align: center;
+  color: var(--text-dark);
 }
 
 /* INDIVIDUAL ELEMENTS */
@@ -156,6 +163,10 @@ header > * {
 
 header i {
   font-size: var(--fs-md);
+}
+
+footer a {
+  color: var(--text-dark);
 }
 
 /* UTILITIES */

@@ -156,6 +156,7 @@ header {
 section {
   flex-grow: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -176,8 +177,10 @@ header i {
   font-size: var(--fs-md);
 }
 
-footer a {
-  color: var(--text-dark);
+.book-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--sz-s);
 }
 
 .card {
@@ -189,6 +192,10 @@ footer a {
   background-color: var(--bg-main);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   gap: var(--sz-s);
+}
+
+.card.card-book {
+  height: fit-content;
 }
 
 .card.card-form li {
@@ -214,8 +221,18 @@ footer a {
   font-size: var(--fs-s);
 }
 
+.modal {
+  display: none;
+}
+
+footer a {
+  color: var(--text-dark);
+}
+
 /* UTILITIES */
 .open {
+  width: 90vw;
+  height: 80%;
   display: flex;
 }
 

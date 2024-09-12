@@ -1,0 +1,143 @@
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* RESETS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* VARIABLES */
+:root {
+  /* Size */
+  --sz-min: 0;
+  --sz-xxxs: 0.25rem;
+  --sz-xxs: 0.5rem;
+  --sz-xs: 0.75rem;
+  --sz-s: 1rem;
+  --sz-md: 1.25rem;
+  --sz-lg: 1.75rem;
+  --sz-xl: 2rem;
+  --sz-xl: 2.25rem;
+  --sz-xxl: 2.5rem;
+  --sz-xxxl: 2.75rem;
+  --sz-max: 3rem;
+
+  /* Font sizes */
+  --fs-min: 0.6rem;
+  --fs-xs: 0.8rem;
+  --fs-s: 1rem;
+  --fs-md: 1.4rem;
+  --fs-lg: 1.8rem;
+  --fs-xl: 2.4rem;
+  --fs-max: 3rem;
+
+  /* Font Weights*/
+  --fw-min: 100;
+  --fw-slim: 300;
+  --fw-regular: 400;
+  --fw-mid: 500;
+  --fw-bold: 700;
+  --fw-max: 900;
+
+  /* Color */
+  --bg-main: #f8fafc;
+  --bg-secondary: #d1d5db;
+  --fg-main: #4169e1;
+  --fg-secondary: #818cf8;
+  --text-dark: #09090b;
+  --text-dim: #4b5563;
+  --text-light: #fafafa;
+  --text-pale: #9ca3af;
+}
+
+/* GENERAL ELEMENTS */
+body {
+  height: 100vh;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: var(--sz-xxxs) var(--sz-lg);
+  font-weight: var(--fw-bold);
+}
+
+/* SEMANTIC ELEMENTS */
+
+/* INDIVIDUAL ELEMENTS */
+
+/* UTILITIES */
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 640px) {
+  /* small mobile */
+}
+
+@media screen and (min-width: 768px) {
+  /* large mobile */
+}
+
+@media screen and (min-width: 1024px) {
+  /* tablets */
+}
+
+@media screen and (min-width: 1280px) {
+  /* laptop */
+}
+
+@media screen and (min-width: 1536px) {
+  /* desktop */
+}

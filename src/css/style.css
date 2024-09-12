@@ -99,6 +99,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-secondary);
 }
 
 h1 {
@@ -177,7 +178,44 @@ footer a {
   color: var(--text-dark);
 }
 
+.card {
+  border-radius: 15px;
+  padding: var(--sz-s) var(--sz-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: var(--bg-main);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  gap: var(--sz-s);
+}
+
+.card.card-form li {
+  display: flex;
+  gap: var(--sz-s);
+  width: 100%;
+}
+
+.card.card-form li input {
+  flex-grow: 1;
+  border: none;
+  border-radius: 5px;
+  padding: var(--sz-min) var(--sz-s);
+  background-color: var(--bg-secondary);
+}
+
+.card.card-form li input:hover,
+.card.card-form li input:focus {
+  outline: 2px solid var(--fg-main);
+}
+
+.card p {
+  font-size: var(--fs-s);
+}
+
 /* UTILITIES */
+.open {
+  display: flex;
+}
 
 /* MEDIA QUERIES */
 @media screen and (min-width: 640px) {

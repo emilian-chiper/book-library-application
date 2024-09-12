@@ -132,6 +132,7 @@ ul {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 button {
@@ -139,6 +140,7 @@ button {
   border-radius: 10px;
   padding: var(--sz-xxxs) var(--sz-lg);
   font-weight: var(--fw-bold);
+  cursor: pointer;
 }
 
 /* SEMANTIC ELEMENTS */

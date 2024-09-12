@@ -191,11 +191,16 @@ header i {
   justify-content: flex-start;
   background-color: var(--bg-main);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  gap: var(--sz-s);
+  gap: var(--sz-xxs);
 }
 
 .card.card-book {
   height: fit-content;
+}
+
+.card.card-book button {
+  width: fit-content;
+  padding: var(--sz-xxxs);
 }
 
 .card.card-form li {
@@ -234,6 +239,16 @@ footer a {
   width: 90vw;
   height: 80%;
   display: flex;
+}
+
+.read {
+  background-color: var(--fg-main);
+  color: var(--text-light);
+}
+
+.unread {
+  background-color: var(--fg-secondary);
+  color: vaR(--text-dark);
 }
 
 /* MEDIA QUERIES */

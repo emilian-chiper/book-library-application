@@ -100,6 +100,30 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+  font-size: var(--fs-xl);
+}
+
+h2 {
+  font-size: var(--fs-l);
+}
+
+h3 {
+  font-size: var(--fs-md);
+}
+
+h4 {
+  font-size: var(--fs-s);
+}
+
+h5 {
+  font-size: var(--fs-xs);
+}
+
+p {
+  font-size: var(--fs-min);
+}
+
 ul {
   list-style: none;
 }
@@ -138,6 +162,29 @@ header {
 
 @media screen and (min-width: 1024px) {
   /* tablets */
+  h1 {
+    font-size: var(--fs-max);
+  }
+
+  h2 {
+    font-size: var(--fs-xl);
+  }
+
+  h3 {
+    font-size: var(--fs-l);
+  }
+
+  h4 {
+    font-size: var(--fs-md);
+  }
+
+  h5 {
+    font-size: var(--fs-s);
+  }
+
+  p {
+    font-size: var(--fs-xs);
+  }
 }
 
 @media screen and (min-width: 1280px) {

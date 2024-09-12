@@ -141,13 +141,22 @@ button {
 
 /* SEMANTIC ELEMENTS */
 header {
-  padding-left: var(--sz-lg);
+  padding: var(--sz-min) var(--sz-lg);
   display: flex;
   align-items: center;
   gap: var(--sz-s);
+  background-color: var(--fg-main);
+  color: var(--bg-main);
 }
 
 /* INDIVIDUAL ELEMENTS */
+header > * {
+  font-weight: var(--fw-slim);
+}
+
+header i {
+  font-size: var(--fs-md);
+}
 
 /* UTILITIES */
 
@@ -161,7 +170,6 @@ header {
 }
 
 @media screen and (min-width: 1024px) {
-  /* tablets */
   h1 {
     font-size: var(--fs-max);
   }
@@ -171,7 +179,7 @@ header {
   }
 
   h3 {
-    font-size: var(--fs-l);
+    font-size: var(--fs-lg);
   }
 
   h4 {
@@ -184,6 +192,10 @@ header {
 
   p {
     font-size: var(--fs-xs);
+  }
+
+  header i {
+    font-size: var(--fs-lg);
   }
 }
 

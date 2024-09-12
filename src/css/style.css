@@ -91,6 +91,7 @@ h6 {
   --text-dim: #4b5563;
   --text-light: #fafafa;
   --text-pale: #9ca3af;
+  --clr-warning: #be123c;
 }
 
 /* GENERAL ELEMENTS */
@@ -138,9 +139,23 @@ a {
 button {
   border: none;
   border-radius: 10px;
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
   padding: var(--sz-xxxs) var(--sz-lg);
+  font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 0 8px 2px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  transition: ease-in-out 0.7;
+}
+
+button:active {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  transform: translateY(3px);
+  transition: ease-in-out 0.4;
 }
 
 /* SEMANTIC ELEMENTS */
@@ -198,9 +213,21 @@ header i {
   height: fit-content;
 }
 
+.card.card.card-book .button-container {
+  margin-top: var(--sz-xxs);
+  display: flex;
+  justify-content: center;
+  gap: var(--sz-md);
+}
+
 .card.card-book button {
   width: fit-content;
   padding: var(--sz-xxxs);
+}
+
+.card.card-book button.btn.btn-delete-book {
+  background-color: var(--clr-warning);
+  color: var(--text-light);
 }
 
 .card.card-form li {
@@ -248,7 +275,7 @@ footer a {
 
 .unread {
   background-color: var(--fg-secondary);
-  color: vaR(--text-dark);
+  color: var(--text-dark);
 }
 
 /* MEDIA QUERIES */

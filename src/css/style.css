@@ -211,7 +211,7 @@ section button {
   justify-content: flex-start;
   background-color: var(--bg-main);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  gap: var(--sz-xxs);
+  gap: var(--sz-xs);
 }
 
 .card.card-book {
@@ -233,6 +233,16 @@ section button {
 .card.card-book button.btn.btn-delete-book {
   background-color: var(--clr-warning);
   color: var(--text-light);
+}
+
+.card.card-form a {
+  text-align: right;
+  color: var(--text-dim);
+}
+
+.card.card-form a:hover {
+  text-align: right;
+  color: var(--text-dark);
 }
 
 .card.card-form li {

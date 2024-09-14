@@ -26,7 +26,7 @@
     </header>
 
     <section>
-      <div class="book-container open">
+      <div class="book-container">
         <div class="card card-book">
           <h4>Book Title</h4>
           <p>Author: <em>Author Name</em></p>
@@ -39,9 +39,12 @@
         </div>
       </div>
 
-      <div class="modal">
+      <div class="modal open">
         <form>
           <ul class="card card-form">
+            <a href="#" class="close-modal">
+              <i class="fas fa-x"></i>
+            </a>
             <li>
               <label for="book-title">Title: </label>
               <input type="text" name="book-title" id="book-title" required />

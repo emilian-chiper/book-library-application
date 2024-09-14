@@ -101,6 +101,7 @@ body {
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
   background-color: var(--bg-secondary);
+  overflow: hidden;
 }
 
 h1 {
@@ -175,6 +176,7 @@ section {
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: auto;
 }
 
 footer {
@@ -195,6 +197,11 @@ header i {
 
 section .btn.btn-add-book {
   margin: var(--sz-md);
+  position: fixed;
+  bottom: 60px;
+  background-color: var(--fg-secondary);
+  font-size: var(--fs-md);
+  color: var(--text-dark);
 }
 
 .card {
@@ -213,7 +220,7 @@ section .btn.btn-add-book {
 }
 
 .book-container {
-  padding: var(--sz-s);
+  padding: var(--sz-xl) var(--sz-md);
   display: none;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--sz-s);
@@ -304,7 +311,8 @@ footer a {
 .open {
   width: 100%;
   height: 100%;
-  display: flex;
+  display: grid;
+  overflow-y: auto;
 }
 
 .read {

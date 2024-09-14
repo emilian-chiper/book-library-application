@@ -13,13 +13,13 @@ const toggleModalVisibility = function () {
   modalElement.classList.toggle('open');
 };
 
-const bookExample = {
-  bookTitle: 'The Hobbit',
-  bookAuthor: 'J.R.R. Tolkien',
-  bookPubYear: 1937,
-  bookPages: 321,
-  bookStatus: 'undread',
-};
+// const bookExample = {
+//   bookTitle: 'The Hobbit',
+//   bookAuthor: 'J.R.R. Tolkien',
+//   bookPubYear: 1937,
+//   bookPages: 321,
+//   bookStatus: 'undread',
+// };
 
 const displayBook = function (book) {
   const { bookTitle, bookAuthor, bookPubYear, bookPages, bookStatus } = book;
@@ -39,7 +39,7 @@ const displayBook = function (book) {
   bookContainerElement.insertAdjacentHTML('beforeend', markdown);
 };
 
-displayBook(bookExample);
+// displayBook(bookExample);
 
 const attachHandlers = function (arr) {
   arr.map(el => {

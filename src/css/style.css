@@ -267,7 +267,8 @@ section .btn.btn-add-book {
   width: 100%;
 }
 
-.modal .card.card-form li input {
+.modal .card.card-form li input,
+.modal .card.card-form li select {
   flex-grow: 1;
   border: none;
   border-radius: 5px;

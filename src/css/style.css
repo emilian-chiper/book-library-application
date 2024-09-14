@@ -192,15 +192,8 @@ header i {
   font-size: var(--fs-md);
 }
 
-section button {
+section .btn.btn-add-book {
   margin: var(--sz-md);
-}
-
-.book-container {
-  padding: var(--sz-s);
-  display: none;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: var(--sz-s);
 }
 
 .card {
@@ -212,6 +205,17 @@ section button {
   background-color: var(--bg-main);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   gap: var(--sz-xs);
+}
+
+.card p {
+  font-size: var(--fs-s);
+}
+
+.book-container {
+  padding: var(--sz-s);
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--sz-s);
 }
 
 .card.card-book {
@@ -240,18 +244,25 @@ section button {
   color: var(--text-dim);
 }
 
-.card.card-form a:hover {
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modal .card.card-form a:hover {
   text-align: right;
   color: var(--text-dark);
 }
 
-.card.card-form li {
+.modal .card.card-form li {
   display: flex;
   gap: var(--sz-s);
   width: 100%;
 }
 
-.card.card-form li input {
+.modal .card.card-form li input {
   flex-grow: 1;
   border: none;
   border-radius: 5px;
@@ -259,24 +270,24 @@ section button {
   background-color: var(--bg-secondary);
 }
 
-.card.card-form li input:hover,
+.modal .card.card-form li input:hover,
 .card.card-form li input:focus {
   outline: 2px solid var(--fg-main);
 }
 
-.card.card-form li input:focus {
+.modal .card.card-form li input:focus {
   background-color: #fff;
 }
 
-.card p {
-  font-size: var(--fs-s);
+.modal .card.card-form li:nth-child(7) {
+  display: flex;
+  justify-content: center;
 }
 
-.modal {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
+.modal .card.card-form li .btn.btn-submit-book {
+  margin: var(--sz-xs) 0;
+  background-color: var(--fg-main);
+  color: white;
 }
 
 footer a {

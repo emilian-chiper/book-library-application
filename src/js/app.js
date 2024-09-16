@@ -103,6 +103,7 @@
     if (book) {
       book.status = book.status === 'Read' ? 'Unread' : 'Read';
       updateDisplay(bookShelf);
+      console.log(bookShelf);
     }
   };
 
@@ -112,6 +113,11 @@
       btn.addEventListener('click', toggleModalVisibility);
     });
     insertBookBtn.addEventListener('click', insertBook);
+    bookContainerElement.addEventListener('click', function (e) {
+      if (e.target.closest('.btn-status')) {
+        toggleReadStatus(e);
+      }
+    });
   };
 
   // Function calls

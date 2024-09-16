@@ -33,17 +33,17 @@
     const booksToDisplay = displayAll ? arr : [arr[arr.length - 1]];
 
     booksToDisplay.forEach(el => {
-      const { title, author, pubYear, pages, status } = el;
+      const { bookID, title, author, pubYear, pages, status } = el;
 
       const markdown = `
-        <div class="card card-book">
+        <div class="card card-book" data-id="${bookID}">
           <h4>${title}</h4>
           <p>Author: <em>${author}</em></p>
           <p>Published: <em>${pubYear}</em></p>
           <p>Pages: <em>${pages}</em></p>
           <div class="button-container">
-            <button class="btn btn-status read ${status.toLowerCase()}">${status.toUpperCase()}</button>
-            <button class="btn btn-delete-book">DELETE</button>
+            <button class="btn btn-status ${status.toLowerCase()}" data-id="${bookID}">${status.toUpperCase()}</button>
+            <button class="btn btn-delete-book" data-id="${bookID}">DELETE</button>
           </div>
         </div>
       `;

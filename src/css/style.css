@@ -274,6 +274,11 @@ section .btn.btn-add-book {
   width: 100%;
 }
 
+.modal .card.card-form li label {
+  width: 80px;
+  text-align: right;
+}
+
 .modal .card.card-form li input,
 .modal .card.card-form li select {
   flex-grow: 1;

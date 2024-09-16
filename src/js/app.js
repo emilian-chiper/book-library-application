@@ -92,6 +92,20 @@
     return bookShelf.find(el => el.bookID === bookID);
   };
 
+  // Toggle read status
+  const toggleReadStatus = function (e) {
+    const button = e.target.closest('.btn-status');
+    if (!button) return;
+
+    const bookID = button.dataset.id;
+    const book = findBookByID(bookID);
+
+    if (book) {
+      book.status = book.status === 'Read' ? 'Unread' : 'Read';
+      updateDisplay(bookShelf);
+    }
+  };
+
   // Attaches event handlers
   const attachHandlers = function () {
     modalBtns.map(btn => {

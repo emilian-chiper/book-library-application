@@ -59,6 +59,7 @@
 
   // Book object constructor
   const Book = function (title, author, pubYear, pages, status) {
+    this.bookID = genBookID();
     this.title = title;
     this.author = author;
     this.pubYear = pubYear;

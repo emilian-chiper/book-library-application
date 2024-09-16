@@ -18,6 +18,11 @@
   // Store books
   const bookShelf = [];
 
+  // Generate a unique ID for each book
+  const genBookID = function () {
+    return `book-${Date.now()}`;
+  };
+
   // Updates display
   const updateDisplay = function (arr, displayAll = true) {
     if (!arr || arr.length === 0) return;
@@ -81,6 +86,7 @@
     updateDisplay(bookShelf);
   };
 
+  // Attaches event handlers
   const attachHandlers = function () {
     modalBtns.map(btn => {
       btn.addEventListener('click', toggleModalVisibility);
@@ -88,6 +94,7 @@
     insertBookBtn.addEventListener('click', insertBook);
   };
 
+  // Function calls
   window.addEventListener('DOMContentLoaded', updateDisplay(bookShelf));
   attachHandlers();
 })();

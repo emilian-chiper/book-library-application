@@ -67,9 +67,14 @@
             </li>
             <li>
               <label for="book-status">Status: </label>
-              <select name="book-status" id="book-status" required>
+              <select
+                name="book-status"
+                id="book-status"
+                default="Unread"
+                required
+              >
                 <option value="" disabled selected>Select status</option>
-                <option value="Unread">Unread</option>
+                <option value="Unread" selected="selected">Unread</option>
                 <option value="Read">Read</option>
               </select>
             </li>

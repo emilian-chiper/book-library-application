@@ -80,11 +80,21 @@
     return newBook;
   };
 
+  // Clear form inputs
+  const clearFormInputs = function () {
+    bookTitleElement.value = '';
+    bookAuthorElement.value = '';
+    bookPubYearElement.value = '';
+    bookPagesElement.value = '';
+    bookStatusElement.value = '';
+  };
+
   // Pushes a new book onto the shelf
   const insertBook = function (e) {
     e.preventDefault();
     bookShelf.push(createBook());
     updateDisplay(bookShelf);
+    clearFormInputs();
   };
 
   // Find book by ID

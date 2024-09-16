@@ -87,6 +87,11 @@
     updateDisplay(bookShelf);
   };
 
+  // Find book by ID
+  const findBookByID = function (bookID) {
+    return bookShelf.find(el => el.bookID === bookID);
+  };
+
   // Attaches event handlers
   const attachHandlers = function () {
     modalBtns.map(btn => {

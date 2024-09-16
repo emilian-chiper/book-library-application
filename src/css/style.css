@@ -239,7 +239,7 @@ section .btn.btn-add-book {
 
 .card.card-book button {
   width: fit-content;
-  padding: var(--sz-xxxs);
+  padding: var(--sz-xxxs) var(--sz-s);
 }
 
 .card.card-book button.btn.btn-delete-book {

@@ -1,66 +1,93 @@
 'use strict';
 
-// Imports
-const bookContainerElement = document.querySelector('.book-container');
-const modalElement = document.querySelector('.modal');
-
-const modalBtns = [
-  document.querySelector('.btn-add-book'),
-  document.querySelector('.close-modal'),
-];
-
-const toggleModalVisibility = function () {
-  modalElement.classList.toggle('open');
-};
-
-const bookShelves = [];
-
-const displayBook = function (book) {
-  const { bookTitle, bookAuthor, bookPubYear, bookPages, bookStatus } = book;
-
-  const markdown = `
-    <div class="card card-book">
-      <h4>${bookTitle}</h4>
-      <p>Author: <em>${bookAuthor}</em></p>
-      <p>Published: <em>${bookPubYear}</em></p>
-      <p>Pages: <em>${bookPages}</em></p>
-      <div class="button-container">
-        <button class="btn btn-status read">${bookStatus.toUpperCase()}</button>
-        <button class="btn btn-delete-book">DELETE</button>
-      </div>
-    </div>
-    `;
-
-  bookContainerElement.insertAdjacentHTML('beforeend', markdown);
-};
-
-const insertBook = function (e) {
-  e.preventDefault();
+(function () {
+  // Import DOM elements
+  const bookContainerElement = document.querySelector('.book-container');
+  const modalElement = document.querySelector('.modal');
+  const modalBtns = [
+    document.querySelector('.btn-add-book'),
+    document.querySelector('.close-modal'),
+  ];
   const bookTitleElement = document.querySelector('#book-title');
   const bookAuthorElement = document.querySelector('#book-author');
   const bookPubYearElement = document.querySelector('#book-publish-year');
   const bookPagesElement = document.querySelector('#book-pages');
   const bookStatusElement = document.querySelector('#book-status');
+  const insertBookBtn = document.querySelector('.btn-submit-book');
 
-  bookShelves.push({
-    bookTitle: `${bookTitleElement.value}`,
-    bookAuthor: `${bookAuthorElement.value}`,
-    bookPubYear: `${bookPubYearElement.value}`,
-    bookPagesElement: `${bookPagesElement.value}`,
-    bookStatus: `${bookStatusElement.value}`,
-  });
+  // Store books
+  const bookShelf = [];
 
-  displayBook(bookShelves[bookShelves.length - 1]);
-  console.log(bookShelves[bookShelves.length - 1]);
-};
+  // Updates display
+  const updateDisplay = function (arr, displayAll = true) {
+    if (!arr || arr.length === 0) return;
 
-const submitBookBtn = document.querySelector('.btn-submit-book');
-submitBookBtn.addEventListener('click', insertBook);
+    bookContainerElement.innerHTML = '';
 
-const attachHandlers = function (arr) {
-  arr.map(el => {
-    el.addEventListener('click', toggleModalVisibility);
-  });
-};
+    // If displayAll is false, display only the last book
+    const booksToDisplay = displayAll ? arr : [arr[arr.length - 1]];
 
-attachHandlers(modalBtns);
+    booksToDisplay.forEach(el => {
+      const { title, author, pubYear, pages, status } = el;
+
+      const markdown = `
+        <div class="card card-book">
+          <h4>${title}</h4>
+          <p>Author: <em>${author}</em></p>
+          <p>Published: <em>${pubYear}</em></p>
+          <p>Pages: <em>${pages}</em></p>
+          <div class="button-container">
+            <button class="btn btn-status read ${status.toLowerCase()}">${status.toUpperCase()}</button>
+            <button class="btn btn-delete-book">DELETE</button>
+          </div>
+        </div>
+      `;
+
+      bookContainerElement.insertAdjacentHTML('beforeend', markdown);
+    });
+  };
+
+  // Toggles modal visibility
+  const toggleModalVisibility = function () {
+    modalElement.classList.toggle('open');
+  };
+
+  // Book object constructor
+  const Book = function (title, author, pubYear, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pubYear = pubYear;
+    this.pages = pages;
+    this.status = status;
+  };
+
+  // Creates and returns a new instance of the book object
+  const createBook = function () {
+    const title = bookTitleElement.value;
+    const author = bookAuthorElement.value;
+    const pubYear = bookPubYearElement.value;
+    const pages = bookPagesElement.value;
+    const status = bookStatusElement.value;
+
+    const newBook = new Book(title, author, pubYear, pages, status);
+
+    return newBook;
+  };
+
+  // Pushes a new book onto the shelf
+  const insertBook = function (e) {
+    e.preventDefault();
+    bookShelf.push(createBook());
+    updateDisplay(bookShelf);
+  };
+
+  const attachHandlers = function () {
+    modalBtns.map(btn => {
+      btn.addEventListener('click', toggleModalVisibility);
+    });
+    insertBookBtn.addEventListener('click', insertBook);
+  };
+
+  window.addEventListener('DOMContentLoaded', updateDisplay(bookShelf));
+  attachHandlers();
+})();

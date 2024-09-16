@@ -8,11 +8,10 @@
     document.querySelector('.btn-add-book'),
     document.querySelector('.close-modal'),
   ];
-  const bookTitleElement = document.querySelector('#book-title');
-  const bookAuthorElement = document.querySelector('#book-author');
-  const bookPubYearElement = document.querySelector('#book-publish-year');
-  const bookPagesElement = document.querySelector('#book-pages');
-  const bookStatusElement = document.querySelector('#book-status');
+  const inputElements = [
+    ...document.querySelectorAll('.modal .card.card-form li input'),
+    document.querySelector('.modal .card.card-form li select'),
+  ];
   const insertBookBtn = document.querySelector('.btn-submit-book');
 
   // Store books
@@ -69,29 +68,32 @@
 
   // Creates and returns a new instance of the book object
   const createBook = function () {
-    const title = bookTitleElement.value;
-    const author = bookAuthorElement.value;
-    const pubYear = bookPubYearElement.value;
-    const pages = bookPagesElement.value;
-    const status = bookStatusElement.value;
+    const [title, author, pubYear, pages, status] = inputElements.map(
+      el => el.value
+    );
 
     const newBook = new Book(title, author, pubYear, pages, status);
 
     return newBook;
   };
 
+  // Checks if inputs are empty
+  const checkFormInputs = function () {
+    return inputElements.some(el => el.value.trim() === '');
+  };
+
   // Clear form inputs
   const clearFormInputs = function () {
-    bookTitleElement.value = '';
-    bookAuthorElement.value = '';
-    bookPubYearElement.value = '';
-    bookPagesElement.value = '';
-    bookStatusElement.value = '';
+    inputElements.map(el => (el.value = ''));
   };
 
   // Pushes a new book onto the shelf
   const insertBook = function (e) {
     e.preventDefault();
+    if (checkFormInputs()) {
+      alert('Please fill out the form.');
+      return;
+    }
     bookShelf.push(createBook());
     updateDisplay(bookShelf);
     clearFormInputs();
@@ -106,14 +108,11 @@
   const toggleReadStatus = function (e) {
     const button = e.target.closest('.btn-status');
     if (!button) return;
-
     const bookID = button.dataset.id;
     const book = findBookByID(bookID);
-
     if (book) {
       book.status = book.status === 'Read' ? 'Unread' : 'Read';
       updateDisplay(bookShelf);
-      console.log(bookShelf);
     }
   };
 

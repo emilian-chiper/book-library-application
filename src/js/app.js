@@ -24,9 +24,9 @@
 
   // Updates display
   const updateDisplay = function (arr, displayAll = true) {
-    if (!arr || arr.length === 0) return;
-
     bookContainerElement.innerHTML = '';
+
+    if (!arr || arr.length === 0) return;
 
     // If displayAll is false, display only the last book
     const booksToDisplay = displayAll ? arr : [arr[arr.length - 1]];
@@ -104,6 +104,11 @@
     return bookShelf.find(el => el.bookID === bookID);
   };
 
+  // Finds book index by ID
+  const findBookIndexByID = function (bookID) {
+    return bookShelf.findIndex(book => book.bookID === bookID);
+  };
+
   // Toggle read status
   const toggleReadStatus = function (e) {
     const button = e.target.closest('.btn-status');
@@ -116,6 +121,22 @@
     }
   };
 
+  // Deletes book
+  const deleteBook = function (e) {
+    const button = e.target.closest('.btn-delete-book');
+    if (!button) return;
+    const bookID = button.dataset.id;
+
+    // Find the index of the book in the array
+    const bookIndex = findBookIndexByID(bookID);
+
+    if (bookIndex !== -1) {
+      bookShelf.splice(bookIndex, 1); // Removes the book at the found index
+      console.log(bookShelf);
+      updateDisplay(bookShelf); // Update the display after deletion
+    }
+  };
+
   // Attaches event handlers
   const attachHandlers = function () {
     modalBtns.map(btn => {
@@ -125,6 +146,8 @@
     bookContainerElement.addEventListener('click', function (e) {
       if (e.target.closest('.btn-status')) {
         toggleReadStatus(e);
+      } else if (e.target.closest('.btn-delete-book')) {
+        deleteBook(e);
       }
     });
   };

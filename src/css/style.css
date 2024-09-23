@@ -181,8 +181,10 @@ section {
 
 footer {
   padding: var(--sz-xxs) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--fg-secondary);
-  text-align: center;
   color: var(--text-dark);
 }
 
@@ -309,7 +311,9 @@ section .btn.btn-add-book {
 }
 
 footer a {
+  font-size: var(--fs-md);
   color: var(--text-dark);
+  margin-left: var(--sz-xs);
 }
 
 /* UTILITIES */

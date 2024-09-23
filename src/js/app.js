@@ -8,6 +8,7 @@
     document.querySelector('.btn-add-book'),
     document.querySelector('.close-modal'),
   ];
+  const cardFormElement = document.querySelector('.card.card-form');
   const inputElements = [
     ...document.querySelectorAll('.modal .card.card-form li input'),
     document.querySelector('.modal .card.card-form li select'),
@@ -54,6 +55,16 @@
   // Toggles modal visibility
   const toggleModalVisibility = function () {
     modalElement.classList.toggle('open');
+  };
+
+  // Close modal when clicking outside teh form element
+  const closeModalOnClickOutside = function (e) {
+    if (
+      modalElement.classList.contains('open') &&
+      !cardFormElement.contains(e.target)
+    ) {
+      toggleModalVisibility();
+    }
   };
 
   // Book object constructor
@@ -140,8 +151,12 @@
   // Attaches event handlers
   const attachHandlers = function () {
     modalBtns.map(btn => {
-      btn.addEventListener('click', toggleModalVisibility);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleModalVisibility();
+      });
     });
+    document.addEventListener('click', closeModalOnClickOutside);
     insertBookBtn.addEventListener('click', insertBook);
     bookContainerElement.addEventListener('click', function (e) {
       if (e.target.closest('.btn-status')) {

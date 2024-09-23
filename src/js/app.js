@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * IIFE to prevent polution of global scope
+ */
 (function () {
   // Import DOM elements
   const bookContainerElement = document.querySelector('.book-container');
@@ -18,18 +21,25 @@
   // Store books
   const bookShelf = [];
 
-  // Generate a unique ID for each book
+  /**
+   * Generates a unique ID for each book.
+   * @returns {string} The unique book ID.
+   */
   const genBookID = function () {
     return `book-${Date.now()}`;
   };
 
-  // Updates display
+  /**
+   * Updates the display of books on the page
+   * @param {Array} arr - The array of books to display
+   * @param {boolean} [displayAll=true] - Whether to display all books or just the latest.
+   * @returns
+   */
   const updateDisplay = function (arr, displayAll = true) {
     bookContainerElement.innerHTML = '';
 
     if (!arr || arr.length === 0) return;
 
-    // If displayAll is false, display only the last book
     const booksToDisplay = displayAll ? arr : [arr[arr.length - 1]];
 
     booksToDisplay.forEach(el => {
@@ -52,12 +62,17 @@
     });
   };
 
-  // Toggles modal visibility
+  /**
+   * Toggles the visibility of the modal
+   */
   const toggleModalVisibility = function () {
     modalElement.classList.toggle('open');
   };
 
-  // Close modal when clicking outside teh form element
+  /**
+   * Closes the modal when clicking outside of the form element.
+   * @param {Even} e - The click event
+   */
   const closeModalOnClickOutside = function (e) {
     if (
       modalElement.classList.contains('open') &&
@@ -67,7 +82,15 @@
     }
   };
 
-  // Book object constructor
+  /**
+   * Book constructor
+   * @ constructor
+   * @param {string} title - The title of the book.
+   * @param {string} author - The author of the book.
+   * @param {string} pubYear - The publication year of the book.
+   * @param {pnumber} pages - The number of pages in the book.
+   * @param {string} status - The reading status of the book (e.g. "Read" or "Unread")
+   */
   const Book = function (title, author, pubYear, pages, status) {
     this.bookID = genBookID();
     this.title = title;
@@ -77,7 +100,10 @@
     this.status = status;
   };
 
-  // Creates and returns a new instance of the book object
+  /**
+   * Creates and returns a new book instance based on form input values.
+   * @returns {Book} A new instance of the book object.
+   */
   const createBook = function () {
     const [title, author, pubYear, pages, status] = inputElements.map(
       el => el.value
@@ -88,17 +114,25 @@
     return newBook;
   };
 
-  // Checks if inputs are empty
+  /**
+   * Checks if any of the form inputs are empty.
+   * @returns {boolean} True if any input is empty, false otherwise.
+   */
   const checkFormInputs = function () {
     return inputElements.some(el => el.value.trim() === '');
   };
 
-  // Clear form inputs
+  /**
+   * Clears the form input fields after submission.
+   */
   const clearFormInputs = function () {
     inputElements.map(el => (el.value = ''));
   };
 
-  // Pushes a new book onto the shelf
+  /**
+   * Inserts a new book into the bookshelf and updates the display.
+   * @param {Event} e - The click event
+   */
   const insertBook = function (e) {
     e.preventDefault();
     if (checkFormInputs()) {
@@ -110,7 +144,11 @@
     clearFormInputs();
   };
 
-  // Find book by ID
+  /**
+   * Finds a book by its ID.
+   * @param {string} bookID - The ID of the book to find.
+   * @returns {Object|null} - The book object if found, null if not.
+   */
   const findBookByID = function (bookID) {
     return bookShelf.find(el => el.bookID === bookID);
   };
@@ -120,7 +158,10 @@
     return bookShelf.findIndex(book => book.bookID === bookID);
   };
 
-  // Toggle read status
+  /**
+   * Toggles the read status of a book.
+   * @param {Event} e - The click event.
+   */
   const toggleReadStatus = function (e) {
     const button = e.target.closest('.btn-status');
     if (!button) return;
@@ -132,13 +173,15 @@
     }
   };
 
-  // Deletes book
+  /**
+   * Deletes a book from the bookshelf and updates the display.
+   * @param {Event} e - The click event.
+   */
   const deleteBook = function (e) {
     const button = e.target.closest('.btn-delete-book');
     if (!button) return;
     const bookID = button.dataset.id;
 
-    // Find the index of the book in the array
     const bookIndex = findBookIndexByID(bookID);
 
     if (bookIndex !== -1) {
@@ -148,7 +191,9 @@
     }
   };
 
-  // Attaches event handlers
+  /**
+   * Attaches event handlers for modal button, form submission, and book container actions.
+   */
   const attachHandlers = function () {
     modalBtns.map(btn => {
       btn.addEventListener('click', function (e) {
@@ -167,7 +212,7 @@
     });
   };
 
-  // Function calls
+  // Initialize the application
   window.addEventListener('DOMContentLoaded', updateDisplay(bookShelf));
   attachHandlers();
 })();
